@@ -1,0 +1,63 @@
+<div class="container h-100">
+  <div class="row align-items-center h-100">
+    <div class="col-8 mx-auto">
+      <div class="jumbotron">
+        <div *ngIf="!endGame">
+          <h1>Type the Quote</h1>
+        </div>
+        <div *ngIf="endGame">
+          <h1>Game Over</h1>
+        </div>
+
+        <hr />
+        <div class="h3" *ngIf="!isLoaded">Loading...</div>
+
+        <div *ngIf="isLoaded">
+          <div *ngIf="!endGame">
+            <div class="col-10 mx-auto quote rounded-3">
+              <figure>
+                <blockquote class="blockquote " #quoteDisplay>
+                  <span *ngFor="let i of quoteCharArray">{{ i }}</span>
+                </blockquote>
+                <figcaption class="blockquote-footer" *ngIf="quote">
+                  {{ quote.author }}
+                </figcaption>
+              </figure>
+            </div>
+
+            <br />
+            <textarea
+              class="quote-input form-control"
+              autofocus
+              (keyup)="feedback()"
+              [(ngModel)]="quoteInput"
+              placeholder="Type Here!"
+            ></textarea>
+            <br />
+
+            <div class="scoreboard">
+              <h4>Score: {{ score }}</h4>
+            </div>
+            <br />
+
+            <div class="timer">
+              <h4>Time Remaining: {{ time }}</h4>
+            </div>
+            <br />
+
+            <button class="btn btn-dark" (click)="endGameNow()">
+              End Game Now
+            </button>
+          </div>
+
+          <div *ngIf="scoresSubmitted">
+            <app-end
+              [score]="score"
+              [quotesCompleted]="quotesCompleted"
+            ></app-end>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

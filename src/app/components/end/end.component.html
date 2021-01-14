@@ -1,0 +1,56 @@
+<span *ngIf="score">
+    <h4>Your score: {{score}}</h4>
+
+</span>
+<span *ngIf="!score">
+    <h4>Your score: {{score}}</h4>
+
+</span>
+
+
+<br>
+
+<h4 class="mr-2">Do you wish to play again?</h4>
+<button class="btn btn-success mr-2" [routerLink]="['/main']">Yes</button>
+<button class="btn btn-danger" [routerLink]="['/']">Quit</button>
+
+<br>
+<br>
+
+<div class="d-flex justify-content-center">
+</div>
+
+<div *ngIf="highScores">
+    <div class="d-flex justify-content-center">
+    <h1 class="mt-3 mb-2">High Scores</h1>
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Player</th>
+                <th scope="col">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of highScores; let index=index">
+                <th scope="row">{{index + 1}}</th>
+                <td>{{i.playerName}}</td>
+                <td>{{i.playerScore}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <h5>Liked the quotes? Send them to yourself!</h5>
+    <form [formGroup]="emailForm">
+        <div class="form-floating mt-1 mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                formControlName="to">
+            <label for="floatingInput">Enter your email address</label>
+        </div>
+    </form>
+    <button class="btn btn-primary" (click)="emailQuotes()" [disabled]="emailForm.invalid">Email Quotes</button>
+</div>

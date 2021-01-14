@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "typinggame-dc210": {
+      "hosting": {
+        "client": [
+          "typinggame-dc210"
+        ]
+      }
+    }
+  }
+}
