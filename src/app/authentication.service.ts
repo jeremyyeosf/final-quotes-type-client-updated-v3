@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
+import { backendUrl2 } from './const';
 // import { Observable, of } from 'rxjs';
 // import { catchError, tap } from 'rxjs/operators';
 import { LoginCredentials } from './models';
@@ -28,7 +29,7 @@ export class AuthenticationService implements CanActivate {
                     return resultFromGoogle
                 }
             } else if (this.normalUser) {
-                return this.http.get<any>('http://localhost:3000/protected/secret', {
+                return this.http.get<any>(`${backendUrl2}/protected/secret`, {
                     headers: { Authorization: `Bearer ${token}` }
                 }).toPromise().then(result => {
                     console.log('original check token', result)
@@ -62,7 +63,7 @@ export class AuthenticationService implements CanActivate {
         // write a call to the backend
         // examine the status code
         this.token = ''
-        return this.http.post<any>('http://localhost:3000/authentication',
+        return this.http.post<any>(`${backendUrl2}/authentication`,
             { username, password }, { observe: 'response' }
         ).toPromise()
             .then(resp => {

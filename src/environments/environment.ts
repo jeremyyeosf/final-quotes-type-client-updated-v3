@@ -5,14 +5,15 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_DOMAIN,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID
+    apiKey: "AIzaSyCRfwtgGIpJ0NdAeVQu4GsYdeqNoPITMog",
+    authDomain: "typinggame-dc210.firebaseapp.com",
+    projectId: "typinggame-dc210",
+    storageBucket: "typinggame-dc210.appspot.com",
+    messagingSenderId: "528641727293",
+    appId: "1:528641727293:web:cbe3dfc74db687d2e48354"
   }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

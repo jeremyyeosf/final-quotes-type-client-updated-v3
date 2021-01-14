@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Quote } from './models';
+import { backendUrl2 } from './const';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class QuoteService {
     params = params.append('maxLength', '70');
 
     return this.http
-      .get<Quote>(`http://localhost:3000/quote/${category}`, {params: params})
+      .get<Quote>(`${backendUrl2}/quote/${category}`, {params: params})
       .pipe(
         tap((result: Quote) => console.log(`got quote`)),
         catchError(this.handleError<any>())

@@ -18,7 +18,6 @@ import { ErrorComponent } from './components/error/error.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { GameOptionComponent } from './components/game-option/game-option.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
@@ -43,7 +42,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AppFirebaseModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

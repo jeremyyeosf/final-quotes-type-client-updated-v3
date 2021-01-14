@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PlayerResultData } from 'src/app/models';
+import { backendUrl2 } from './const';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +15,13 @@ export class GameService {
   async storePlayerData(data: PlayerResultData) {
     // send data to Express to DB
     console.log('service sending to express...', data)
-    let result = await this.http.post('http://localhost:3000/api/data', data, { observe: 'response' }).toPromise()
+    let result = await this.http.post(`${backendUrl2}/api/data`, data, { observe: 'response' }).toPromise()
     console.log('from mongo post', result)
     return result
   }
 
   async retrieveScores() {
-    let result = await this.http.get('http://localhost:3000/api/data', { observe: 'response' }).toPromise()
+    let result = await this.http.get(`${backendUrl2}/api/data`, { observe: 'response' }).toPromise()
     console.log('retrieved high scores:', result.body)
     
     return result.body
